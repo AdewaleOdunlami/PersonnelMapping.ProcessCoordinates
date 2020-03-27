@@ -22,7 +22,7 @@ namespace PersonnelMapping.ProcessCoordinates.Controllers
             _logger = logger;
             _clientOptions = clientOptions;
             _mapsApiKey = options.Value.Key;
-            _client = new HttpClient
+            //_client = new HttpClient
         }
 
         public string GetMapApiKey()
