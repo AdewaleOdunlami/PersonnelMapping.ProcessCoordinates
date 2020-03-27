@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ProcessCoordinates.Models
+namespace PersonnelMapping.ProcessCoordinates.Models
 {
     public class Address
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProcessCoordinates.Models;
+using PersonnelMapping.ProcessCoordinates.Models;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace ProcessCoordinates.BusinessRules
+namespace PersonnelMapping.ProcessCoordinates.BusinessRules
 {
     public class ProcessAddressController : ControllerBase
     {

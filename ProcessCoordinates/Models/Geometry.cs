@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ProcessCoordinates.Models
+namespace PersonnelMapping.ProcessCoordinates.Models
 {
     public class Geometry
     {

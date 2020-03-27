@@ -1,6 +1,6 @@
 using System;
 
-namespace ProcessCoordinates.Models
+namespace PersonnelMapping.ProcessCoordinates.Models
 {
     public class ErrorViewModel
     {

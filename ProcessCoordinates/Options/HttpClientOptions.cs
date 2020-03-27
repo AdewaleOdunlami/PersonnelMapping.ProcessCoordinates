@@ -1,4 +1,4 @@
-﻿namespace ProcessCoordinates.Options
+﻿namespace PersonnelMapping.ProcessCoordinates.Options
 {
     public class HttpClientOptions
     {

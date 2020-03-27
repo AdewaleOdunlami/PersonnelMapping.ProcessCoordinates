@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using ProcessCoordinates.Models;
+using PersonnelMapping.ProcessCoordinates.Models;
+using PersonnelMapping.ProcessCoordinates.Options;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace ProcessCoordinates.BusinessRules
+namespace PersonnelMapping.ProcessCoordinates.Controllers
 {
     public class LoadCoordinatesController : ControllerBase
     {

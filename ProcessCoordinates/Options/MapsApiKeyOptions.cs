@@ -1,4 +1,4 @@
-﻿namespace ProcessCoordinates
+﻿namespace PersonnelMapping.ProcessCoordinates
 {
     public class MapsApiKeyOptions
     {
