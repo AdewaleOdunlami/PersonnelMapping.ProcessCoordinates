@@ -8,14 +8,16 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace PersonnelMapping.ProcessCoordinates.BusinessRules
+namespace PersonnelMapping.ProcessCoordinates.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class ProcessAddressController : ControllerBase
     {
         private readonly string _mapsApiKey;
         private readonly ILogger<ProcessAddressController> _logger;
         private readonly HttpClient _client;
-        private Address _address;
+        private Address _address = new Address();
         public string GetMapApiKey { get; set; }
 
         public ProcessAddressController(ILogger<ProcessAddressController> logger,
@@ -27,15 +29,10 @@ namespace PersonnelMapping.ProcessCoordinates.BusinessRules
             _client = new HttpClient { BaseAddress = new Uri(clientOptions.Value.BaseAddress) };
         }
 
-        public async Task<Coordinates> GetCoordinates(string address, string stateCode)
+        [HttpGet]
+        public async Task<Coordinates> Get(string streetAddress, string stateCode)
         {
-            await ProcessAddress(address, stateCode);
-            return _address.Coordinates;
-        }
-
-        public async Task<Coordinates> GetCoordinates(Address address)
-        {
-            await ProcessAddress(address);
+            await ProcessAddress(streetAddress, stateCode);
             return _address.Coordinates;
         }
 
@@ -57,7 +54,7 @@ namespace PersonnelMapping.ProcessCoordinates.BusinessRules
             }
             var response = await result.Content.ReadAsStringAsync();
             var coordinates = JsonConvert.DeserializeObject<RootObject>(response).Features[0].Geometry.Coordinates;
-            _address.Coordinates = new Coordinates { Longitude = coordinates[0], Latitude = coordinates[1] };
+            address.Coordinates = new Coordinates { Longitude = coordinates[0], Latitude = coordinates[1] };
 
             _address = address;
         }
