@@ -11,14 +11,13 @@ using System.Threading.Tasks;
 namespace PersonnelMapping.ProcessCoordinates.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class ProcessAddressController : ControllerBase
     {
         private readonly string _mapsApiKey;
         private readonly ILogger<ProcessAddressController> _logger;
         private readonly HttpClient _client;
         private Address _address = new Address();
-        public string GetMapApiKey { get; set; }
 
         public ProcessAddressController(ILogger<ProcessAddressController> logger,
             IOptions<MapsApiKeyOptions> options,
@@ -34,6 +33,12 @@ namespace PersonnelMapping.ProcessCoordinates.Controllers
         {
             await ProcessAddress(streetAddress, stateCode);
             return _address.Coordinates;
+        }
+
+        [HttpGet]
+        public string GetMapApiKey()
+        {
+            return _mapsApiKey;
         }
 
         private async Task ProcessAddress(string address, string stateCode)

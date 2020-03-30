@@ -7,8 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\GeocodePoints.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.2.1" />
   </ItemGroup>
 
 

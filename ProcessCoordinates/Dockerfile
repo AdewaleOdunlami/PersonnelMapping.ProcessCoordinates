@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["PersonnelMapping.ProcessCoordinates/PersonnelMapping.ProcessCoordinates.csproj", "PersonnelMapping.ProcessCoordinates/"]
-RUN dotnet restore "PersonnelMapping.ProcessCoordinates/PersonnelMapping.ProcessCoordinates.csproj"
+COPY ["ProcessCoordinates/PersonnelMapping.ProcessCoordinates.csproj", "ProcessCoordinates/"]
+RUN dotnet restore "ProcessCoordinates/PersonnelMapping.ProcessCoordinates.csproj"
 COPY . .
-WORKDIR "/src/PersonnelMapping.ProcessCoordinates"
+WORKDIR "/src/ProcessCoordinates"
 RUN dotnet build "PersonnelMapping.ProcessCoordinates.csproj" -c Release -o /app/build
 
 FROM build AS publish
