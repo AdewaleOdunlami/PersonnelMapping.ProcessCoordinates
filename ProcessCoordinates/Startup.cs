@@ -31,12 +31,12 @@ namespace PersonnelMapping.ProcessCoordinates
                 {
                     Version = "v1",
                     Title = "Process Coordinates",
-                    Description = "This handles all that is related to getting coordinates from addresses.",
+                    Description = "This will return the coordinates for an address.",
                     Contact = new OpenApiContact
                     {
                         Name = "Aridfount",
                         Email = string.Empty,
-                        Url = new Uri("https://www.aridfount.com")
+                        Url = new Uri("http://www.aridfount.com")
                     },
                     License = new OpenApiLicense
                     {
