@@ -43,9 +43,15 @@ namespace PersonnelMapping.ProcessCoordinates.Controllers
 
         private async Task ProcessAddress(string address, string stateCode)
         {
-            var convertedAddress = new Address { State = stateCode, Street = address };
-
-            await UpdateAddressCoordinates(convertedAddress);
+            if (string.IsNullOrEmpty(stateCode))
+            {
+                _logger.LogInformation("No state code was provided.");
+            }
+            else
+            {
+                var convertedAddress = new Address { State = stateCode, Street = address };
+                await UpdateAddressCoordinates(convertedAddress);
+            }
         }
 
         private async Task UpdateAddressCoordinates(Address address)
@@ -62,16 +68,6 @@ namespace PersonnelMapping.ProcessCoordinates.Controllers
             address.Coordinates = new Coordinates { Longitude = coordinates[0], Latitude = coordinates[1] };
 
             _address = address;
-        }
-
-        private async Task ProcessAddress(Address address)
-        {
-            if (address == null)
-            {
-                address = new Address();
-            }
-
-            await UpdateAddressCoordinates(address);
         }
 
         private string GetUrl(string fullAddress)
