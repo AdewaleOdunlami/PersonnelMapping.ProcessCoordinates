@@ -13,7 +13,8 @@ TC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Models\RootObje
 \C:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Options\HttpClientOptions.csutf-8e
 \C:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Options\MapsApiKeyOptions.csutf-8S
 JC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Program.csutf-8S
-JC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Startup.csutf-8’
+JC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Startup.csutf-8V
+MC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\UrlOptions.csutf-8’
 †C:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.csutf-8—
 ‹C:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\obj\Debug\netcoreapp3.1\PersonnelMapping.ProcessCoordinates.AssemblyInfo.csutf-8ª
 žC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\obj\Debug\netcoreapp3.1\PersonnelMapping.ProcessCoordinates.MvcApplicationPartsAssemblyInfo.csutf-8

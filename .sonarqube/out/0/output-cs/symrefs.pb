@@ -54,22 +54,22 @@ QC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Models\Address.
  !
 QC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Models\Context.cs
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
-		  ›
+  ›
 UC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Models\Coordinates.cs
 
- 
+ 
 
- 
-  
- 		 ˆ
+ 
+  
+  ˆ
 XC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Models\ErrorViewModel.cs
 
  
@@ -78,40 +78,40 @@ XC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Models\ErrorVie
 		 !ï
 QC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Models\Feature.cs
 
- 
+ 
 
- 
+ 
 
-		 
+ 
+
+		 &
 
 
 
- &
+ 
 
- 
+ $
 
- $
+ 
 
- 
+  
 
-  
+ "
 
- "
+  
 
-  
+ 
 
- 
+ $
 
- $
-
- !}
+ !}
 WC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Models\GeocodePoints.cs
 
- 
+ 
 
- 
+ 
 
- &x
+ &x
 RC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Models\Geometry.cs
 
  
@@ -121,26 +121,26 @@ RC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Models\Geometry
  '†
 TC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Models\Properties.cs
 
- 
+ 
 
- 
+ 
 
-  
+  
 
- ’
+ ’
 TC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Models\RootObject.cs
 
- 
+ 
 
- 
+ 
 
-		 !
+ !
+
+		 %
 
 
 
- %
-
- !v
+ !v
 \C:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Options\HttpClientOptions.cs
 
  "
@@ -162,21 +162,26 @@ JC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Program.cs
  !! 
 ))> B**& *
 ++" )-- .. 
-00* 422 ¤
+00* 422 Ì
 JC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Startup.cs
 
  
 
  
-& 3 )(
- + 2 ?2 ?
+& 3 )F
+ + 2 ?2 ?+ 8((& 3--& 3
 
- %2
-9 A    
-# $ 
+ %<
+9 A     
+# $ 
 
-33 P
-332 555 77 ?? BB DD FF HH 
-33K N== 
-77 99 :: 
-HH &JJ 
+44 P
+442 566 88 @@ CC EE GG II 
+44K N>> 
+88 :: ;; 
+II &KK g
+MC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\UrlOptions.cs
+
+ 
+
+  

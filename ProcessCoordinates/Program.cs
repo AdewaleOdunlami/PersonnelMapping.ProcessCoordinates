@@ -8,7 +8,7 @@ using Serilog;
 
 namespace PersonnelMapping.ProcessCoordinates
 {
-    public class Program
+    public static class Program
     {
         private static IConfiguration configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
