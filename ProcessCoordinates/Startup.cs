@@ -23,6 +23,7 @@ namespace PersonnelMapping.ProcessCoordinates
         {
             services.Configure<MapsApiKeyOptions>(Configuration.GetSection("MapBoxApiKey"));
             services.Configure<HttpClientOptions>(Configuration.GetSection("HttpClientInfo"));
+            services.Configure<UrlOptions>(Configuration.GetSection("CustomURLs"));
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
@@ -36,12 +37,12 @@ namespace PersonnelMapping.ProcessCoordinates
                     {
                         Name = "Aridfount",
                         Email = string.Empty,
-                        Url = new Uri("http://www.aridfount.com")
+                        Url = new Uri(Configuration.GetSection("CustomURLs:Company").Value)
                     },
                     License = new OpenApiLicense
                     {
                         Name = "Proprietary",                       
-                        Url = new Uri("https://example.com")
+                        Url = new Uri(Configuration.GetSection("CustomURLs:License").Value)
                     }
                 });
             });

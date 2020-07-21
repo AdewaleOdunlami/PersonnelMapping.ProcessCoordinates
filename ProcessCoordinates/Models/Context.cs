@@ -1,5 +1,4 @@
-﻿using System;
-namespace PersonnelMapping.ProcessCoordinates.Models
+﻿namespace PersonnelMapping.ProcessCoordinates.Models
 {
     public class Context
     {
