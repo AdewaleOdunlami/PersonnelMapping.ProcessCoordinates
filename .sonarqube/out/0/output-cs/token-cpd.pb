@@ -1,4 +1,141 @@
-¼4
+ü
+_C:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\BusinessLogic\ProcessAddress.cs
+	namespace 	
+PersonnelMapping
+ 
+. 
+ProcessCoordinates -
+.- .
+BusinessLogic. ;
+{ 
+public 
+
+static 
+class 
+ProcessAddress &
+{ 
+public 
+const 
+string 
+NoStateCode '
+=( )
+$str* G
+;G H
+public		 
+static		 
+void		 $
+UpdateAddressCoordinates		 3
+(		3 4
+Address		4 ;
+address		< C
+,		C D
+string		E K
+response		L T
+)		T U
+{
+
+ 	
+var 
+coordinates 
+= 
+JsonConvert )
+.) *
+DeserializeObject* ;
+<; <
+
+RootObject< F
+>F G
+(G H
+responseH P
+)P Q
+.Q R
+FeaturesR Z
+[Z [
+$num[ \
+]\ ]
+.] ^
+Geometry^ f
+.f g
+Coordinatesg r
+;r s
+address 
+. 
+Coordinates 
+=  !
+new" %
+Coordinates& 1
+{2 3
+	Longitude4 =
+=> ?
+coordinates@ K
+[K L
+$numL M
+]M N
+,N O
+LatitudeP X
+=Y Z
+coordinates[ f
+[f g
+$numg h
+]h i
+}j k
+;k l
+} 	
+public 
+static 
+Address 
+FormatAddress +
+(+ ,
+string, 2
+streetAddress3 @
+,@ A
+stringB H
+	stateCodeI R
+)R S
+{ 	
+return 
+new 
+Address 
+{  
+State! &
+=' (
+	stateCode) 2
+,2 3
+Street4 :
+=; <
+streetAddress= J
+}K L
+;L M
+} 	
+public 
+static 
+bool 
+IsEmptyStateCode +
+(+ ,
+string, 2
+	stateCode3 <
+)< =
+{ 	
+if 
+( 
+string 
+. 
+IsNullOrEmpty $
+($ %
+	stateCode% .
+). /
+)/ 0
+{ 
+return 
+true 
+; 
+} 
+return 
+false 
+; 
+} 	
+} 
+} è*
 gC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Controllers\ProcessAddressController.cs
 	namespace 	
 PersonnelMapping
@@ -116,248 +253,177 @@ HttpClient $
 Task   
 <   
 Coordinates   %
->  % &
-Get  ' *
-(  * +
-string  + 1
-streetAddress  2 ?
-,  ? @
-string  A G
-	stateCode  H Q
-)  Q R
-{!! 	
-await"" 
-ProcessAddress""  
-(""  !
-streetAddress""! .
-,"". /
+>  % &
+GetCoordinates  ' 5
+(  5 6
+string  6 <
+streetAddress  = J
+,  J K
+string  L R
+	stateCode  S \
+)  \ ]
+{!! 	
+if"" 
+("" 
+ProcessAddress"" 
+."" 
+IsEmptyStateCode"" /
+(""/ 0
 	stateCode""0 9
 )""9 :
-;"": ;
-return## 
-_address## 
-.## 
-Coordinates## '
-;##' (
-}$$ 	
-[&& 	
-HttpGet&&	 
-]&& 
-public'' 
-string'' 
-GetMapApiKey'' "
-(''" #
-)''# $
-{(( 	
-return)) 
-_mapsApiKey)) 
-;)) 
-}** 	
-private,, 
-async,, 
-Task,, 
-ProcessAddress,, )
-(,,) *
-string,,* 0
-address,,1 8
-,,,8 9
-string,,: @
-	stateCode,,A J
-),,J K
-{-- 	
+)"": ;
+{## 
+_logger$$ 
+.$$ 
+LogInformation$$ &
+($$& '
+ProcessAddress$$' 5
+.$$5 6
+NoStateCode$$6 A
+)$$A B
+;$$B C
+return%% 
+new%% 
+Coordinates%% &
+(%%& '
+)%%' (
+;%%( )
+}&& 
+Address(( 
+address(( 
+=(( 
+ProcessAddress(( ,
+.((, -
+FormatAddress((- :
+(((: ;
+streetAddress((; H
+,((H I
+	stateCode((J S
+)((S T
+;((T U
+_logger** 
+.** 
+LogInformation** "
+(**" #
+$"**# %$
+Loading coordinates for **% =
+{**= >
+address**> E
+.**E F
+FullAddress**F Q
+}**Q R
+"**R S
+)**S T
+;**T U
+var,, 
+responseMessage,, 
+=,,  !
+await,," '
+_client,,( /
+.,,/ 0
+GetAsync,,0 8
+(,,8 9
+GetUrl,,9 ?
+(,,? @
+address,,@ G
+.,,G H
+FullAddress,,H S
+),,S T
+),,T U
+;,,U V
 if.. 
-(.. 
-string.. 
-... 
-IsNullOrEmpty.. $
-(..$ %
-	stateCode..% .
-)... /
-)../ 0
-{// 
-_logger00 
-.00 
-LogInformation00 &
-(00& '
-$str00' D
-)00D E
-;00E F
-}11 
-else22 
-{33 
-var44 
-convertedAddress44 $
-=44% &
-new44' *
-Address44+ 2
-{443 4
-State445 :
-=44; <
-	stateCode44= F
-,44F G
-Street44H N
-=44O P
-address44Q X
-}44Y Z
-;44Z [
-await55 $
-UpdateAddressCoordinates55 .
-(55. /
-convertedAddress55/ ?
-)55? @
-;55@ A
-}66 
-}77 	
-private99 
-async99 
-Task99 $
-UpdateAddressCoordinates99 3
-(993 4
-Address994 ;
-address99< C
-)99C D
-{:: 	
-_logger;; 
-.;; 
-LogInformation;; "
-(;;" #
-$";;# %$
-Loading coordinates for ;;% =
-{;;= >
-address;;> E
-.;;E F
-FullAddress;;F Q
-};;Q R
-";;R S
-);;S T
-;;;T U
-var<< 
-result<< 
-=<< 
-await<< 
-_client<< &
-.<<& '
-GetAsync<<' /
-(<</ 0
-GetUrl<<0 6
-(<<6 7
-address<<7 >
-.<<> ?
-FullAddress<<? J
-)<<J K
-)<<K L
-;<<L M
-if>> 
-(>> 
-!>> 
-result>> 
-.>> 
-IsSuccessStatusCode>> +
-)>>+ ,
-{?? 
-_address@@ 
-.@@ 
-Coordinates@@ $
-=@@% &
-new@@' *
-Coordinates@@+ 6
-(@@6 7
-)@@7 8
-;@@8 9
-}AA 
-varBB 
-responseBB 
-=BB 
-awaitBB  
-resultBB! '
-.BB' (
-ContentBB( /
-.BB/ 0
-ReadAsStringAsyncBB0 A
-(BBA B
-)BBB C
-;BBC D
-varCC 
-coordinatesCC 
-=CC 
-JsonConvertCC )
-.CC) *
-DeserializeObjectCC* ;
-<CC; <
-
-RootObjectCC< F
->CCF G
-(CCG H
-responseCCH P
-)CCP Q
-.CCQ R
-FeaturesCCR Z
-[CCZ [
-$numCC[ \
-]CC\ ]
-.CC] ^
-GeometryCC^ f
-.CCf g
-CoordinatesCCg r
-;CCr s
-addressDD 
-.DD 
-CoordinatesDD 
-=DD  !
-newDD" %
-CoordinatesDD& 1
-{DD2 3
-	LongitudeDD4 =
-=DD> ?
-coordinatesDD@ K
-[DDK L
-$numDDL M
-]DDM N
-,DDN O
-LatitudeDDP X
-=DDY Z
-coordinatesDD[ f
-[DDf g
-$numDDg h
-]DDh i
-}DDj k
-;DDk l
-_addressFF 
-=FF 
-addressFF 
-;FF 
-}GG 	
-privateII 
-stringII 
-GetUrlII 
-(II 
-stringII $
-fullAddressII% 0
-)II0 1
-{JJ 	
-varKK 
-urlKK 
-=KK 
-$"KK >
-2https://api.mapbox.com/geocoding/v5/mapbox.places/KK J
-"KKJ K
-+KKL M
-$"LL 
-{LL 
-fullAddressLL &
-}LL& '
-.json?access_token=LL' :
-{LL: ;
-_mapsApiKeyLL; F
-}LLF G
-"LLG H
-;LLH I
-returnMM 
-urlMM 
-;MM 
-}NN 	
-}PP 
-}QQ à
+(.. 
+!.. 
+responseMessage..  
+...  !
+IsSuccessStatusCode..! 4
+)..4 5
+{// 
+_address00 
+.00 
+Coordinates00 $
+=00% &
+new00' *
+Coordinates00+ 6
+(006 7
+)007 8
+;008 9
+}11 
+var33 
+response33 
+=33 
+await33  
+responseMessage33! 0
+.330 1
+Content331 8
+.338 9
+ReadAsStringAsync339 J
+(33J K
+)33K L
+;33L M
+ProcessAddress55 
+.55 $
+UpdateAddressCoordinates55 3
+(553 4
+address554 ;
+,55; <
+response55= E
+)55E F
+;55F G
+_address77 
+=77 
+address77 
+;77 
+return99 
+_address99 
+.99 
+Coordinates99 '
+;99' (
+}:: 	
+[>> 	
+HttpGet>>	 
+]>> 
+public?? 
+string?? 
+GetMapApiKey?? "
+(??" #
+)??# $
+{@@ 	
+returnAA 
+_mapsApiKeyAA 
+;AA 
+}BB 	
+privateDD 
+stringDD 
+GetUrlDD 
+(DD 
+stringDD $
+fullAddressDD% 0
+)DD0 1
+{EE 	
+varFF 
+urlFF 
+=FF 
+$"FF >
+2https://api.mapbox.com/geocoding/v5/mapbox.places/FF J
+"FFJ K
++FFL M
+$"GG 
+{GG 
+fullAddressGG &
+}GG& '
+.json?access_token=GG' :
+{GG: ;
+_mapsApiKeyGG; F
+}GGF G
+"GGG H
+;GGH I
+returnHH 
+urlHH 
+;HH 
+}II 	
+}KK 
+}LL à
 bC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Infrastructure\ThreadIdEnricher.cs
 	namespace 	
 PersonnelMapping
@@ -1137,7 +1203,7 @@ RootObject 
 ;$ %
 }& '
 } 
-} ¬
+} À
 JC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Program.cs
 	namespace		 	
 PersonnelMapping		
@@ -1148,9 +1214,10 @@ JC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Program.cs
 
  
 public 
-
-class 
-Program 
+
+static 
+class 
+Program 
 { 
 private 
 static 
@@ -1350,59 +1417,69 @@ UseStartup22 )
 )33 
 ;33 
 }44 
-}55 •'
+}55 ü$
 JC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Startup.cs
-	namespace
-
- 	
-PersonnelMapping
-
-
+	namespace		 	
+PersonnelMapping		
  
-.
+.		 
+ProcessCoordinates		 -
+{
 
- 
-ProcessCoordinates
-
- -
-{ 
-public 
+ 
+public 
 
-class 
-Startup 
-{ 
-public 
-Startup 
-( 
-IConfiguration %
-configuration& 3
-)3 4
-{ 	
-Configuration 
-= 
-configuration )
-;) *
-} 	
-public 
-IConfiguration 
-Configuration +
-{, -
-get. 1
-;1 2
-}3 4
-public 
-void 
-ConfigureServices %
-(% &
-IServiceCollection& 8
-services9 A
-)A B
-{ 	
+class 
+Startup 
+{ 
+public 
+Startup 
+( 
+IConfiguration %
+configuration& 3
+)3 4
+{ 	
+Configuration 
+= 
+configuration )
+;) *
+} 	
+public 
+IConfiguration 
+Configuration +
+{, -
+get. 1
+;1 2
+}3 4
+public 
+void 
+ConfigureServices %
+(% &
+IServiceCollection& 8
+services9 A
+)A B
+{ 	
+services 
+. 
+	Configure 
+< 
+MapsApiKeyOptions 0
+>0 1
+(1 2
+Configuration2 ?
+.? @
+
+GetSection@ J
+(J K
+$strK Y
+)Y Z
+)Z [
+;[ \
 services 
 . 
 	Configure 
 < 
-MapsApiKeyOptions 0
+HttpClientOptions 0
 >0 1
 (1 2
 Configuration2 ?
@@ -1410,241 +1487,209 @@ JC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\Startup.cs
 
 GetSection@ J
 (J K
-$strK Y
-)Y Z
-)Z [
-;[ \
+$strK [
+)[ \
+)\ ]
+;] ^
 services 
 . 
 	Configure 
-< 
-HttpClientOptions 0
->0 1
-(1 2
-Configuration2 ?
-.? @
+< 
 
-GetSection@ J
-(J K
-$strK [
-)[ \
-)\ ]
-;] ^
+UrlOptions )
+>) *
+(* +
+Configuration+ 8
+.8 9
+
+GetSection9 C
+(C D
+$strD P
+)P Q
+)Q R
+;R S
 services 
-. 
-	Configure 
-< 
+. 
+AddControllers #
+(# $
+)$ %
+;% &
+services 
+. 
+AddSwaggerGen "
+(" #
+c# $
+=>% '
+{ 
+c 
+. 
 
-UrlOptions )
->) *
-(* +
-Configuration+ 8
-.8 9
+SwaggerDoc 
+( 
+$str !
+,! "
+new# &
+OpenApiInfo' 2
+{ 
+Version   
+=   
+$str   "
+,  " #
+Title!! 
+=!! 
+$str!! 1
+,!!1 2
+Description"" 
+=""  !
+$str""" T
+,""T U
+Contact## 
+=## 
+new## !
+OpenApiContact##" 0
+{$$ 
+Name%% 
+=%% 
+$str%% *
+,%%* +
+Email&& 
+=&& 
+string&&  &
+.&&& '
+Empty&&' ,
+,&&, -
+Url'' 
+='' 
+new'' !
+Uri''" %
+(''% &
+Configuration''& 3
+.''3 4
 
-GetSection9 C
-(C D
-$strD P
-)P Q
-)Q R
-;R S
-services 
-. 
-AddControllers #
-(# $
-)$ %
-;% &
-services 
-. 
-AddSwaggerGen "
-(" #
-c# $
-=>% '
-{ 
-c 
-. 
+GetSection''4 >
+(''> ?
+$str''? S
+)''S T
+.''T U
+Value''U Z
+)''Z [
+}(( 
+,(( 
+License)) 
+=)) 
+new)) !
+OpenApiLicense))" 0
+{** 
+Name++ 
+=++ 
+$str++ ,
+,++, -
+Url,, 
+=,, 
+new,, !
+Uri,," %
+(,,% &
+Configuration,,& 3
+.,,3 4
 
-SwaggerDoc 
-( 
-$str !
-,! "
-new# &
-OpenApiInfo' 2
-{   
-Version!! 
-=!! 
-$str!! "
-,!!" #
-Title"" 
-="" 
-$str"" 1
-,""1 2
-Description## 
-=##  !
-$str##" T
-,##T U
-Contact$$ 
-=$$ 
-new$$ !
-OpenApiContact$$" 0
-{%% 
-Name&& 
-=&& 
-$str&& *
-,&&* +
-Email'' 
-='' 
-string''  &
-.''& '
-Empty''' ,
-,'', -
-Url(( 
-=(( 
-new(( !
-Uri((" %
-(((% &
-Configuration((& 3
-.((3 4
+GetSection,,4 >
+(,,> ?
+$str,,? S
+),,S T
+.,,T U
+Value,,U Z
+),,Z [
+}-- 
+}.. 
+).. 
+;.. 
+}// 
+)// 
+;// 
+}00 	
+public33 
+void33 
+	Configure33 
+(33 
+IApplicationBuilder33 1
+app332 5
+,335 6
+IWebHostEnvironment337 J
+env33K N
+)33N O
+{44 	
+app55 
+.55 
 
-GetSection((4 >
-(((> ?
-$str((? S
-)((S T
-.((T U
-Value((U Z
-)((Z [
-})) 
-,)) 
-License** 
-=** 
-new** !
-OpenApiLicense**" 0
-{++ 
-Name,, 
-=,, 
-$str,, ,
-,,,, -
-Url-- 
-=-- 
-new-- !
-Uri--" %
-(--% &
-Configuration--& 3
-.--3 4
-
-GetSection--4 >
-(--> ?
-$str--? S
-)--S T
-.--T U
-Value--U Z
-)--Z [
-}.. 
-}// 
-)// 
-;// 
-}00 
-)00 
-;00 
-}11 	
-public44 
-void44 
-	Configure44 
-(44 
-IApplicationBuilder44 1
-app442 5
-,445 6
-IWebHostEnvironment447 J
-env44K N
-)44N O
-{55 	
-app66 
-.66 
-
-UseSwagger66 
-(66 
-)66 
-;66 
-app88 
-.88 
-UseSwaggerUI88 
-(88 
-c88 
-=>88 !
-{99 
+UseSwagger55 
+(55 
+)55 
+;55 
+app77 
+.77 
+UseSwaggerUI77 
+(77 
+c77 
+=>77 !
+{88 
+c99 
+.99 
+SwaggerEndpoint99 !
+(99! "
+$str99" <
+,99< =
+$str99> S
+)99S T
+;99T U
 c:: 
-.:: 
-SwaggerEndpoint:: !
-(::! "
-$str::" <
-,::< =
-$str::> S
-)::S T
-;::T U
-c;; 
-.;; 
-RoutePrefix;; 
-=;; 
-string;;  &
-.;;& '
-Empty;;' ,
-;;;, -
-}<< 
-)<< 
-;<< 
-if>> 
-(>> 
-env>> 
-.>> 
-IsDevelopment>> !
-(>>! "
-)>>" #
-)>># $
-{?? 
-app@@ 
-.@@ %
-UseDeveloperExceptionPage@@ -
-(@@- .
-)@@. /
-;@@/ 0
-}AA 
-appCC 
-.CC 
-UseHttpsRedirectionCC #
-(CC# $
-)CC$ %
-;CC% &
-appEE 
-.EE 
+.:: 
+RoutePrefix:: 
+=:: 
+string::  &
+.::& '
+Empty::' ,
+;::, -
+};; 
+);; 
+;;; 
+app== 
+.== 
+UseHttpsRedirection== #
+(==# $
+)==$ %
+;==% &
+app?? 
+.?? 
 
-UseRoutingEE 
-(EE 
-)EE 
-;EE 
-appGG 
-.GG 
-UseAuthorizationGG  
-(GG  !
-)GG! "
-;GG" #
-appII 
-.II 
-UseEndpointsII 
-(II 
-	endpointsII &
-=>II' )
-{JJ 
-	endpointsKK 
-.KK 
-MapControllersKK (
-(KK( )
-)KK) *
-;KK* +
-}LL 
-)LL 
-;LL 
-}MM 	
-}NN 
-}OO Æ
+UseRouting?? 
+(?? 
+)?? 
+;?? 
+appAA 
+.AA 
+UseAuthorizationAA  
+(AA  !
+)AA! "
+;AA" #
+appCC 
+.CC 
+UseEndpointsCC 
+(CC 
+	endpointsCC &
+=>CC' )
+{DD 
+	endpointsEE 
+.EE 
+MapControllersEE (
+(EE( )
+)EE) *
+;EE* +
+}FF 
+)FF 
+;FF 
+}GG 	
+}HH 
+}II Æ
 MC:\repos\PersonnelMapping.ProcessCoordinates\ProcessCoordinates\UrlOptions.cs
 	namespace 	
 PersonnelMapping

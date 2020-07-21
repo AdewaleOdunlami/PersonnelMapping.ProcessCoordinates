@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using PersonnelMapping.ProcessCoordinates.Options;
 using System;
@@ -41,7 +40,7 @@ namespace PersonnelMapping.ProcessCoordinates
                     },
                     License = new OpenApiLicense
                     {
-                        Name = "Proprietary",                       
+                        Name = "Proprietary",
                         Url = new Uri(Configuration.GetSection("CustomURLs:License").Value)
                     }
                 });
@@ -58,11 +57,6 @@ namespace PersonnelMapping.ProcessCoordinates
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Process Coordinates");
                 c.RoutePrefix = string.Empty;
             });
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
 
             app.UseHttpsRedirection();
 
