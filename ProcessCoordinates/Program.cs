@@ -18,10 +18,7 @@ namespace PersonnelMapping.ProcessCoordinates
 
         public static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-                .Enrich.FromLogContext()
-                .ReadFrom.Configuration(configuration)
-                .CreateLogger();
+            Log.Logger = CreateLogger();
 
             try
             {
@@ -49,5 +46,13 @@ namespace PersonnelMapping.ProcessCoordinates
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        private static Serilog.ILogger CreateLogger()
+        {
+            return new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .ReadFrom.Configuration(configuration)
+                .CreateLogger();
+        }
     }
 }
